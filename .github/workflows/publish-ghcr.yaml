@@ -3,10 +3,10 @@ name: Docker Image CI for Github Container Registry
 on:
   push:
     branches:
-      main
-  merge:
+      - main
+  pull_request:
     branches:
-      main
+      - main
 
 jobs:
   build_and_publish:
@@ -14,9 +14,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Set up JDK
+      - name: Set up JDK 23
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'
+          distribution: 'oracle'
+
+      # Build the JAR file using Maven
+      - name: Build with Maven
+        run: mvn clean install -DskipTests
+
+      # Log in to GitHub Container Registry
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u fufn --password-stdin
 
+      # Build and push the Docker image
       - name: Build and push the Docker image
         run: |
           docker build . -t ghcr.io/fufn/wishify:latest
