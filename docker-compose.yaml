@@ -1,0 +1,11 @@
+services:
+  whishify:
+    image: ghcr.io/fufn/wishify:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=1234
+      - DB_NAME=wishify
+    restart: unless-stopped
