@@ -3,8 +3,8 @@
 
 CREATE TABLE wish
 (
-    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-    name        VARCHAR(255) NOT NULL,                           
-    description TEXT,                                            
-    user_email  VARCHAR(255)                                     
+    id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    name        VARCHAR(255),
+    description TEXT,
+    user_name  VARCHAR(255)
 );

@@ -1,10 +1,10 @@
-package kz.sheeshwish;
+package kz.wishify;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SheeshwishApplicationTests {
+class WhishifyApplicationTests {
 
 	@Test
 	void contextLoads() {

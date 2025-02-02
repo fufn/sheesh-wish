@@ -1,6 +1,7 @@
 server:
   port: 8081
-
+  servlet:
+    context-path: /sheeshwish
 spring:
   datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:sheeshwish}
@@ -14,3 +15,9 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
   liquibase:
     change-log: database/changelog/changelog-master.yaml
+logging:
+  file:
+    name: logs/wishify.log
+  logback:
+    rollingpolicy:
+      max-history: 90
