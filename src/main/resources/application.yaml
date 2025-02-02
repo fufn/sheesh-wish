@@ -1,2 +1,12 @@
 server:
   port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:sheeshwish}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:1234}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
