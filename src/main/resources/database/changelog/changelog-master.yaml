@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: classpath:database/changelog/v1_create_wish_table.sql
