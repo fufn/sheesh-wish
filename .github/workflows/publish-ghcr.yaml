@@ -1,0 +1,23 @@
+name: Docker Image CI for Github Container Registry
+
+on:
+  push:
+    branches:
+      main
+  merge:
+    branches:
+      main
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u fufn --password-stdin
+
+      - name: Build and push the Docker image
+        run: |
+          docker build . -t ghcr.io/fufn/wishify:latest
+          docker push ghcr.io/fufn/wishify:latest
