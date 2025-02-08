@@ -1,7 +1,5 @@
 server:
   port: 8317
-  servlet:
-    context-path: /wishify
 spring:
   datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:wishify}
