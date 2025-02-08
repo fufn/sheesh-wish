@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface WishRepository extends JpaRepository<WishEntity, UUID> {
 
-    List<WishEntity> findAllByUserName(String userName);
+    List<WishEntity> findAllByUsername(String userName);
 }
