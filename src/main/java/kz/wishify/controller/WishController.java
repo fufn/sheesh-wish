@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 
-import static kz.wishify.util.HttpUtil.API_V1;
+import static kz.wishify.util.HttpUtil.V1;
 
 @RestController
-@RequestMapping(API_V1 + "/wishes")
+@RequestMapping(V1 + "/wishes")
 @RequiredArgsConstructor
 public class WishController {
 
