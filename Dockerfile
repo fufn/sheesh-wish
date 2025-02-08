@@ -4,6 +4,6 @@ WORKDIR /wishify
 
 COPY target/*.jar wishify.jar
 
-EXPOSE 8081
+EXPOSE 8317
 
 ENTRYPOINT ["java", "-jar", "wishify.jar"]
