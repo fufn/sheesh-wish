@@ -14,6 +14,8 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 public interface WishMapper {
 
     WishDto toDto(WishEntity wishEntity);
+
+    @Mapping(target = "id", ignore = true)
     WishEntity toEntity(WishDto wishDto);
 
     @Mapping(target = "id", ignore = true)
