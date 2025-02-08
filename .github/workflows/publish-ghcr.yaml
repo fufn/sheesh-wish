@@ -5,10 +5,11 @@ on:
     branches:
       - main
       - release-*
-  pull_request:
-    branches:
-      - main
-      - release-*
+# TODO: enable when there will be tests to pass in order to merge
+#  pull_request:
+#    branches:
+#      - main
+#      - release-*
 
 jobs:
   build_and_publish:
