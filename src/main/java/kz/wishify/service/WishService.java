@@ -23,7 +23,7 @@ public class WishService {
 
     public List<WishDto> getAllWishes(String userName) {
         log.debug("Getting all wishes for user: {}", userName);
-        return wishMapper.toListDto(wishRepository.findAllByUserName(userName));
+        return wishMapper.toListDto(wishRepository.findAllByUsername(userName));
     }
 
     public WishDto saveWish(WishDto wishDto) {
