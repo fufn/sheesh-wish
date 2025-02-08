@@ -2,7 +2,7 @@ services:
   whishify:
     image: ghcr.io/fufn/wishify:latest
     ports:
-      - "8081:8081"
+      - "8317:8317"
     environment:
       - DB_HOST=host.docker.internal
       - DB_USERNAME=postgres
