@@ -18,7 +18,7 @@ public class SwaggerFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String requestURI = request.getRequestURI();
 
-        if (requestURI.equals("/wishify/swagger-ui/index.html")) {
+        if (requestURI.equals("/swagger-ui/index.html")) {
             String queryString = request.getQueryString();
             if (queryString == null || !queryString.contains("token=" + TOKEN)) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token");
