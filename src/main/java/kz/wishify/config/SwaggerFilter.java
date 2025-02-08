@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import java.io.IOException;
 
 @Component
@@ -18,7 +19,7 @@ public class SwaggerFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String requestURI = request.getRequestURI();
 
-        if (requestURI.equals("/swagger-ui/index.html")) {
+        if (requestURI.equals("/api/swagger-ui/index.html")) {
             String queryString = request.getQueryString();
             if (queryString == null || !queryString.contains("token=" + TOKEN)) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token");
