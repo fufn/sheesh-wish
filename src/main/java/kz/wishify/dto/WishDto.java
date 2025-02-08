@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public record WishDto(
         UUID id,
-        String name,
+        String title,
         String description,
-        String userName
+        String username
 ) {
 }

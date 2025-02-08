@@ -26,8 +26,8 @@ public class WishController {
     private final WishService wishService;
 
     @GetMapping
-    public List<WishDto> getAllWishes(@RequestParam String userName) {
-        return wishService.getAllWishes(userName);
+    public List<WishDto> getAllWishes(@RequestParam String username) {
+        return wishService.getAllWishes(username);
     }
 
     @PostMapping
