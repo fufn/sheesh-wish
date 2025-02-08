@@ -3,6 +3,8 @@ services:
     image: ghcr.io/fufn/wishify:latest
     ports:
       - "8317:8317"
+    volumes:
+      - /logs:/wishify/logs
     environment:
       - DB_HOST=host.docker.internal
       - DB_USERNAME=postgres
