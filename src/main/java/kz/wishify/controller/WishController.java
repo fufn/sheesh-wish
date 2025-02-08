@@ -35,9 +35,10 @@ public class WishController {
         return wishService.saveWish(wishDto);
     }
 
-    @PutMapping
-    public WishDto updateWish(@RequestBody WishDto wishDto) {
-        return wishService.updateWish(wishDto);
+    @PutMapping("{id}")
+    public WishDto updateWish(@PathVariable UUID id,
+                              @RequestBody WishDto wishDto) {
+        return wishService.updateWish(id, wishDto);
     }
 
     @DeleteMapping("/{wishId}")

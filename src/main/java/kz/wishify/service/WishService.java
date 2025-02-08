@@ -1,6 +1,9 @@
 package kz.wishify.service;
 
 import kz.wishify.dto.WishDto;
+import kz.wishify.entity.WishEntity;
+import kz.wishify.exception.ExceptionType;
+import kz.wishify.exception.ServiceException;
 import kz.wishify.mapper.WishMapper;
 import kz.wishify.repository.WishRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,12 +33,16 @@ public class WishService {
         return wishMapper.toDto(wishEntity);
     }
 
-    public WishDto updateWish(WishDto wishDto) {
+    public WishDto updateWish(UUID id, WishDto wishDto) {
         log.debug("Updating wish: {}", wishDto);
-        var existingEntity = wishRepository.findById(wishDto.id())
-                .orElseThrow(RuntimeException::new);
+        var existingEntity = getWishById(id);
         var updatedEntity = wishMapper.updateEntity(existingEntity, wishDto);
         return wishMapper.toDto(wishRepository.save(updatedEntity));
+    }
+
+    public WishEntity getWishById(UUID id) {
+        return wishRepository.findById(id)
+                .orElseThrow(() -> new ServiceException(ExceptionType.WISH_NOT_FOUND));
     }
 
     public void deleteWish(UUID wishId) {
